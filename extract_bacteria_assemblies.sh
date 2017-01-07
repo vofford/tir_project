@@ -24,7 +24,9 @@ awk ' BEGIN {
 			{
                 protein=$20 "/" $1 "_" $16 "_protein.faa.gz"
                 gsub(/ /,"_",protein)
-				print $0,protein
+                gcf=protein
+                gsub(/GCA/,"GCF",gcf)
+				print $0,protein,gcf
 			} 
 		} 
 		close("'"$GENOMES"'");	
